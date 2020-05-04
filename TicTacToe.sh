@@ -1,9 +1,11 @@
 #!/bin/bash
 
 resetBoard(){
-         echo "=========TIC TAK TOE Game started========="
+   echo "=========TIC TAK TOE Game started========="
    Arr=(. . . . . . . . .)
+   gamestatus=1
 }
+
 echo " O for player 1"
 echo " X for player 2"
 
@@ -37,3 +39,14 @@ printBoard(){
    echo "2   ${Arr[6]} ${Arr[7]} ${Arr[8]}"
 }
 
+checkTheTurn()
+{
+   checkTurn=$gameStatus
+            if [ $checkTurn -eq 0 ]
+            then
+                     echo "**************  PLAYER $player HAS WON THE GAME GAME OVER  ****************"
+                                 break
+            else
+                     echo "====== NEXT TURN ====="
+      fi
+}
