@@ -71,3 +71,13 @@ checkTheTurn()
 printSampleBoard
 printBoard
 toss
+echo "====  player 1 is computer== "
+while [ 1 == 1 ]; do
+        player=$(($player % 2 + 1))
+        if [ $player == 1 ]
+    then
+       sym=O
+    else
+       sym=X
+    fi
+done
