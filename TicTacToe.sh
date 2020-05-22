@@ -39,14 +39,35 @@ printBoard(){
    echo "2   ${Arr[6]} ${Arr[7]} ${Arr[8]}"
 }
 
+checkMatch(){
+   if [ ${Arr[$1]} != "." ] && [ ${Arr[$1]} == ${Arr[$2]} ] && [ ${Arr[$2]} == ${Arr[$3]} ]
+   then
+      gameStatus=0
+   fi
+}
+
+checkGame(){
+   checkMatch 0 1 2
+   checkMatch 3 4 5
+   checkMatch 6 7 8
+   checkMatch 0 3 6
+   checkMatch 1 4 7
+   checkMatch 2 5 8
+   checkMatch 0 4 8
+   checkMatch 2 4 6
+}
+
 checkTheTurn()
 {
    checkTurn=$gameStatus
-            if [ $checkTurn -eq 0 ]
-            then
-                     echo "**************  PLAYER $player HAS WON THE GAME GAME OVER  ****************"
-                                 break
-            else
-                     echo "====== NEXT TURN ====="
-      fi
+   if [ $checkTurn -eq 0 ]
+   then
+      echo "**************  PLAYER $player HAS WON THE GAME GAME OVER  ****************"
+      break
+   else
+          echo "====== NEXT TURN ========"
+   fi
 }
+printSampleBoard
+printBoard
+toss
