@@ -80,4 +80,28 @@ while [ 1 == 1 ]; do
     else
        sym=X
     fi
+ 	 echo "Player $player's turn: ($sym)"
+    echo ""
+    echo "enter the POSITION  where u want to put your input from sample Board "
+
+        read a
+
+        if [ $a -ge 0 ] && [ $a -le 8 ]
+        then
+
+                if [ $player -eq 1 ]
+                then
+                        Arr[$a]=O
+                        printBoard
+                else
+                        Arr[$a]=X
+                        printBoard
+                fi
+
+        else
+                echo "you enter invalid position"
+    fi
+    checkGame
+    checkTheTurn
+    printSampleBoard
 done
